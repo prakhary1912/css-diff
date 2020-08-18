@@ -4,7 +4,7 @@ const commonCss = require('./commonCss');
 
 const selectors = [];
 
-fs.readFile('./page.html', 'utf8', function (err, page) {
+fs.readFile('./pdp.html', 'utf8', function (err, page) {
   const $ = cheerio.load(page);
   const allNodes = $('*');
   Object.values(allNodes).forEach((node) => {
@@ -48,5 +48,5 @@ fs.readFile('./page.html', 'utf8', function (err, page) {
       unusedSelectors.push(key);
     }
   });
-  console.log(unusedSelectors);
+  fs.writeFile('./unusedPdp.txt', JSON.stringify(unusedSelectors), function() {});
 });
