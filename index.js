@@ -33,7 +33,7 @@ fs.readFile('./page.html', 'utf8', function (err, page) {
           }
         });
       });
-    } else if (/keyframes/.test(key) || /\@import/.test(key)) {
+    } else if (/keyframes/.test(key) || /\@import/.test(key) || /\@font-face/.test(key)) {
       hasMatchingSelector = true;
     } else {
       // Test css selector against selectors on page
